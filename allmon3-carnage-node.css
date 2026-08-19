@@ -1,0 +1,367 @@
+/**
+ * Allmon3-Carnage_Node
+ * Custom dark theme for Allmon3
+ * Black / dark-grey base with deep purple (#4A0F75) + lime green neon accents
+ * TX / keyed / actions remain red (logical warning color)
+ * Idle TX bar is lime
+ * Based on After Dark template – 73
+ */
+
+/* =========================================================
+   1. Core Allmon3 CSS Variables
+   ========================================================= */
+:root {
+  /* Navbar */
+  --am3-navbar-background: #0a0a0a;
+  --am3-navbar-color: #f0f0f0;
+
+  /* Node title bar */
+  --am3-nodetitle-background: #121212;
+  --am3-nodetitle-color: #f0f0f0;
+  --am3-nodetitle-button-hl: #2a2a2a;
+
+  /* Connection table */
+  --am3-conntable-header-text: #f0f0f0;
+  --am3-conntable-header-bg: #0d0d0d;
+  --am3-conntable-border-color: #333333;
+
+  /* Connection states */
+  --am3-conntable-conn-keyed-bg-color: #0a0a0a !important;
+  --am3-conntable-conn-keyed-color: #ffaaaa !important;
+  --am3-conntable-conn-noconn-color: #e0e0e0;
+  --am3-conntable-conn-noconn-bg-color: #1a1a1a;
+
+  /* TX states – KEEP RED (logical warning / transmit color) */
+  --am3-node-tx-local-color: #ff4444;
+  --am3-node-tx-local-bg-color: #2a0a0a;
+  --am3-node-tx-network-color: #ff6666;
+  --am3-node-tx-network-bg-color: #3a1010;
+  --am3-node-tx-telemetry-color: #ff6666;
+  --am3-node-tx-telemetry-bg-color: #3a1010;
+  --am3-node-tx-playback-remote-color: #ff6666;
+  --am3-node-tx-playback-remote-bg-color: #3a1010;
+
+  /* No TX / Idle – lime */
+  --am3-node-no-tx-color: #a3e635;
+  --am3-node-no-tx-bg-color: #0f1a0a;
+
+  /* Bootstrap helpers */
+  --bs-body-bg: #0a0a0a;
+  --bs-body-color: #e0e0e0;
+  --bs-border-color: #333333;
+  --bs-table-bg: #1a1a1a;
+  --bs-table-border-color: #333333;
+
+  /* Critical for Bootstrap 5.3 tooltips & contrast elements */
+  --bs-emphasis-color: #e0e0e0;
+  --bs-emphasis-color-rgb: 224, 224, 224;
+
+  /* ===== Carnage Node neon palette ===== */
+  --neon-lime: #a3e635;
+  --neon-lime-soft: #bef264;
+  --neon-lime-glow: rgba(163, 230, 53, 0.55);
+  --neon-lime-glow-strong: rgba(163, 230, 53, 0.8);
+
+  /* Deep purple requested by user */
+  --neon-purple: #6410A3;
+  --neon-purple-deep: #4A0F75;
+  --neon-purple-glow: rgba(74, 15, 117, 0.65);
+  --neon-purple-glow-strong: rgba(74, 15, 117, 0.85);
+}
+
+/* =========================================================
+   2. Page & Main Background
+   ========================================================= */
+body,
+main,
+#asl-statmon-dashboard-area {
+  background-color: #0a0a0a !important;
+  color: #e0e0e0 !important;
+}
+
+/* =========================================================
+   3. Node Panels / Cards
+   ========================================================= */
+.card,
+.card-body,
+.bg-light,
+.bg-white,
+div.rounded,
+.node-bi {
+  background-color: #141414 !important;
+  color: #e0e0e0 !important;
+  border-color: #2a2a2a !important;
+}
+
+/* =========================================================
+   4. Tables – Alternating Black / Dark Grey Rows
+   ========================================================= */
+.table,
+.table-bordered {
+  border-color: #333333 !important;
+  color: #e0e0e0 !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  background-color: #121212 !important;
+  color: #e0e0e0 !important;
+  --bs-table-accent-bg: #121212;
+}
+
+.table-striped > tbody > tr:nth-of-type(even) > * {
+  background-color: #1c1c1c !important;
+  color: #e0e0e0 !important;
+  --bs-table-accent-bg: #1c1c1c;
+}
+
+tbody, td, tfoot, th, thead, tr {
+  border-color: #333333 !important;
+}
+
+/* =========================================================
+   5. Force light text everywhere inside node panels and tables
+   ========================================================= */
+.card,
+.card-body,
+.node-bi,
+div.rounded,
+.table,
+.table td,
+.table th,
+td.desc,
+.desc,
+.node-desc,
+.nodetxline,
+.asl-node-panel,
+#asl-statmon-dashboard-area * {
+  color: #e0e0e0 !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > *,
+.table-striped > tbody > tr:nth-of-type(even) > * {
+  color: #e0e0e0 !important;
+}
+
+/* =========================================================
+   6. Purple + Lime Accents + Title Glow
+      (TX / keyed stay red)
+   ========================================================= */
+/* Main dashboard title – exact deep purple #4A0F75 (user’s chosen title color) */
+#navbar-midbar,
+.navbar-midbar {
+  color: #6410A3 !important; /* Title Text */
+  font-weight: 600 !important;
+  text-shadow: 0 0 10px var(--neon-purple-glow-strong),
+               0 0 20px var(--neon-purple-glow),
+               0 0 30px rgba(74, 15, 117, 0.45);
+}
+
+/* =========================================================
+   Active Transmit states – FORCE RED border + text + glow
+   (overrides any yellow default from Allmon3 when keyed)
+   ========================================================= */
+.nodetxline.am3-tx-local,
+.nodetxline.am3-tx-network,
+.nodetxline.am3-tx-telemetry,
+.nodetxline.am3-tx-playback-remote,
+.am3-tx-local,
+.am3-tx-network,
+.am3-tx-telemetry,
+.am3-tx-playback-remote {
+  color: #ff4444 !important;
+  background-color: #2a0a0a !important;
+  border: 1px solid #ff2222 !important;
+  box-shadow: 0 0 8px rgba(255, 50, 50, 0.55),
+              0 0 16px rgba(255, 30, 30, 0.3) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 6px rgba(255, 50, 50, 0.6);
+}
+
+.nodetxline.am3-tx-local *,
+.nodetxline.am3-tx-network *,
+.nodetxline.am3-tx-telemetry *,
+.nodetxline.am3-tx-playback-remote * {
+  color: #ff6666 !important;
+}
+
+/* Keyed connections – KEEP thick red left border (action / active) */
+.node-conn-keyed,
+td.node-conn-keyed,
+th.node-conn-keyed {
+  border-left: 5px solid #ff2222 !important;
+  color: #ffaaaa !important;
+  text-shadow: 0 0 8px rgba(255, 50, 50, 0.7),
+               0 0 16px rgba(255, 30, 30, 0.4);
+}
+
+/* =========================================================
+   6b. Transmit – Idle → Lime Green
+   ========================================================= */
+.nodetxline.am3-no-tx,
+.nodetxline.am3-no-tx *,
+.am3-no-tx {
+  color: var(--neon-lime) !important;
+  background-color: #0f1a0a !important;
+  border-color: var(--neon-lime) !important;
+  text-shadow: 0 0 6px var(--neon-lime-glow);
+}
+
+.nodetxline.am3-no-tx {
+  border: 1px solid var(--neon-lime) !important;
+  box-shadow: 0 0 6px var(--neon-lime-glow);
+}
+
+/* =========================================================
+   7. Neon Border Styling – Purple for main node headers
+      (Idle TX stays lime/green)
+   ========================================================= */
+/* Node panels / cards – purple neon */
+.card,
+.card-body,
+div.rounded,
+.node-bi {
+  border: 1px solid var(--neon-purple) !important;
+  box-shadow: 0 0 10px var(--neon-purple-glow),
+              0 0 22px rgba(74, 15, 117, 0.25),
+              inset 0 0 8px rgba(74, 15, 117, 0.08);
+}
+
+/* Tables get a thinner purple neon border */
+.table,
+.table-bordered {
+  border: 1px solid var(--neon-purple) !important;
+  box-shadow: 0 0 6px var(--neon-purple-glow);
+}
+
+/* =========================================================
+   8. Sidebar & Buttons
+   ========================================================= */
+.sidebar {
+  background-color: #121212 !important;
+}
+
+.sidebar a,
+#login-out-region button {
+  color: #e0e0e0 !important;
+  background-color: #1c1c1c !important;
+  border-color: #333333 !important;
+}
+
+.btn-secondary,
+.btn-outline-dark {
+  --bs-btn-color: #e0e0e0;
+  --bs-btn-bg: #1a1a1a;
+  --bs-btn-border-color: #404040;
+  --bs-btn-hover-bg: #2a2a2a;
+  --bs-btn-hover-border-color: #555555;
+}
+
+/* =========================================================
+   8b. Node action buttons – clean, tooltip-like (NO outer glow)
+   ========================================================= */
+/* The small icon buttons in the node header / actions list */
+.card .btn,
+.node-bi .btn,
+.nodetitle .btn,
+.asl-node-panel .btn,
+.btn-sm,
+button.btn {
+  box-shadow: none !important;
+  border: 1px solid #404040 !important;
+  background-color: #1a1a1a !important;
+  color: #e0e0e0 !important;
+}
+
+.card .btn:hover,
+.node-bi .btn:hover,
+.nodetitle .btn:hover,
+.asl-node-panel .btn:hover,
+.btn-sm:hover,
+button.btn:hover {
+  border-color: var(--neon-purple) !important;
+  background-color: #222222 !important;
+  color: #ffffff !important;
+  box-shadow: none !important; /* keep clean – no glow */
+}
+
+/* =========================================================
+   9. Modals, Dropdowns & Polish
+   ========================================================= */
+.modal-content {
+  background-color: #141414 !important;
+  border-color: #333333 !important;
+  color: #e0e0e0 !important;
+}
+
+.dropdown-menu {
+  background-color: #1a1a1a !important;
+  border-color: #333333 !important;
+}
+
+.dropdown-item {
+  color: #e0e0e0 !important;
+}
+
+.dropdown-item:hover {
+  background-color: #2a2a2a !important;
+  color: #ffffff !important;
+}
+
+/* Extra safety – reinforce red for any active TX state (border already set above) */
+.nodetxline.am3-tx-local,
+.nodetxline.am3-tx-network,
+.nodetxline.am3-tx-telemetry,
+.nodetxline.am3-tx-playback-remote,
+.am3-tx-local,
+.am3-tx-network,
+.am3-tx-telemetry,
+.am3-tx-playback-remote {
+  border-color: #ff2222 !important;
+  color: #ff6666 !important;
+}
+
+/* =========================================================
+   10. Tooltips – Dark theme fix (Bootstrap 5.3+)
+      with Carnage Node neon treatment (clean like requested)
+   ========================================================= */
+.tooltip {
+  --bs-tooltip-bg: #1a1a1a;
+  --bs-tooltip-color: #e0e0e0;
+  --bs-tooltip-opacity: 0.95;
+}
+
+.tooltip-inner {
+  background-color: #1a1a1a !important;
+  color: #e0e0e0 !important;
+  border: 1px solid var(--neon-purple);
+  box-shadow: 0 0 6px var(--neon-purple-glow),
+              0 0 3px rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+}
+
+/* Make the arrow match the dark tooltip body */
+.tooltip .tooltip-arrow::before,
+.bs-tooltip-auto[data-popper-placement^=top] .tooltip-arrow::before,
+.bs-tooltip-top .tooltip-arrow::before {
+  border-top-color: #1a1a1a !important;
+}
+.bs-tooltip-auto[data-popper-placement^=bottom] .tooltip-arrow::before,
+.bs-tooltip-bottom .tooltip-arrow::before {
+  border-bottom-color: #1a1a1a !important;
+}
+.bs-tooltip-auto[data-popper-placement^=start] .tooltip-arrow::before,
+.bs-tooltip-start .tooltip-arrow::before,
+.bs-tooltip-left .tooltip-arrow::before {
+  border-left-color: #1a1a1a !important;
+}
+.bs-tooltip-auto[data-popper-placement^=end] .tooltip-arrow::before,
+.bs-tooltip-end .tooltip-arrow::before,
+.bs-tooltip-right .tooltip-arrow::before {
+  border-right-color: #1a1a1a !important;
+}
+
+/* Also catch the special .nodeline-tooltip class used in Allmon3 */
+.nodeline-tooltip {
+  --bs-tooltip-bg: #1a1a1a !important;
+  --bs-tooltip-color: #e0e0e0 !important;
+}
