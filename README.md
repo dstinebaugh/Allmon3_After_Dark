@@ -10,9 +10,9 @@ These are pure CSS drop-in replacements for `/etc/allmon3/custom.css`.
 
 | File | Description |
 |------|-------------|
-| `allmon3-after-dark-custom.css` | Original black / dark-grey base with **red neon** accents |
-| `allmon3-carnage-node.css` | Black / dark-grey with **deep purple** neon node headers + **lime** Idle bar. TX stays red |
-| `allmon3-murica.css` | Slightly lighter dark base with **red** title + TX, **blue** node titles (American flag inspired) |
+| `allmon3-after-dark-custom.css` | Black / dark-grey base with **red neon** accents for those long nights |
+| `allmon3-carnage-node.css` | Black / dark-grey with **deep purple** neon node headers + **lime** Idle bar. Inspired by One Punch Man's Carnage Kabuto (personal fav) |
+| `allmon3-murica.css` | The name should say nuff! **red** **white** and **blue** node titles (American flag inspired) |
 
 All themes keep **active transmit / keyed states in red** for clear operational awareness.
 
@@ -37,7 +37,7 @@ All themes keep **active transmit / keyed states in red** for clear operational 
    ```bash
    sudo systemctl restart allmon3
    ```
-5. Hard-refresh the browser (`Ctrl+Shift+R` / `Cmd+Shift+R`).
+5. Hard-refresh the browser (`Ctrl+Shift+R` / `Cmd+Shift+R` / `Ctrl+f5`).
 
 That’s it.
 
@@ -46,8 +46,7 @@ That’s it.
 ## Notes
 
 - These themes were built and tested against Allmon3 with Bootstrap 5.3.
-- Tooltips, modals, dropdowns, and action buttons are styled for dark readability.
-- The Carnage Node theme intentionally keeps the **Transmit – Idle** bar lime green while the main node panels use purple neon.
+- Tooltips, modals, dropdowns, and action buttons are styled for dark readability. if I missed any LET ME KNOW THE ELEMENT NAME and I'll get it fixed!
 - Feel free to edit the CSS variables at the top of each file to tweak colors.
 
 ---
