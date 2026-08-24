@@ -13,8 +13,7 @@ These are pure CSS drop-in replacements for `/etc/allmon3/custom.css`.
 | `allmon3-after-dark-custom.css` | Black / dark-grey base with **red neon** accents for those long nights |
 | `allmon3-carnage-node.css` | Black / dark-grey with **deep purple** neon node headers + **lime** Idle bar. Inspired by One Punch Man's Carnage Kabuto (personal fav) |
 | `allmon3-murica.css` | The name should say nuff! **red** **white** and **blue** node titles (American flag inspired) |
-
-All themes keep **active transmit / keyed states in red** for clear operational awareness.
+| `allmon3-synth.css` | 80's synthwave inspired dark purples with neon highlights |
 
 ---
 
