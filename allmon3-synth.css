@@ -1,0 +1,208 @@
+
+/**
+ * Allmon3-Synth
+ * 80s Synthwave / Retrowave – wild edition
+ * Neon cyan, hot pink, purple, electric green, yellow accents
+ * Transmit + keyed left bars now neon pink
+ * 73
+ */
+
+:root {
+  --am3-navbar-background: #05020f;
+  --am3-navbar-color: #e8e0ff;
+  --am3-nodetitle-background: #0e0620;
+  --am3-nodetitle-color: #00f7ff;
+  --am3-nodetitle-button-hl: #2a1545;
+
+  --am3-conntable-header-text: #e8e0ff;
+  --am3-conntable-header-bg: #0a0418;
+  --am3-conntable-border-color: #4a2a70;
+
+  --am3-conntable-conn-keyed-bg-color: #1a0510 !important;
+  --am3-conntable-conn-keyed-color: #ff99cc !important;
+  --am3-conntable-conn-noconn-color: #d8d0ff;
+  --am3-conntable-conn-noconn-bg-color: #140a28;
+
+  /* TX now neon pink */
+  --am3-node-tx-local-color: #ff2a6a;
+  --am3-node-tx-local-bg-color: #2a0a18;
+  --am3-node-tx-network-color: #ff5c8a;
+  --am3-node-tx-network-bg-color: #3a1020;
+  --am3-node-tx-telemetry-color: #ff5c8a;
+  --am3-node-tx-telemetry-bg-color: #3a1020;
+  --am3-node-tx-playback-remote-color: #ff5c8a;
+  --am3-node-tx-playback-remote-bg-color: #3a1020;
+
+  --am3-node-no-tx-color: #39ff14;
+  --am3-node-no-tx-bg-color: #051a08;
+
+  --bs-body-bg: #05020f;
+  --bs-body-color: #e8e0ff;
+  --bs-border-color: #4a2a70;
+  --bs-table-bg: #140a28;
+  --bs-table-border-color: #4a2a70;
+  --bs-emphasis-color: #e8e0ff;
+  --bs-emphasis-color-rgb: 232, 224, 255;
+
+  --neon-cyan: #00f7ff;
+  --neon-cyan-glow: rgba(0, 247, 255, 0.6);
+  --neon-pink: #ff2a6a;
+  --neon-pink-glow: rgba(255, 42, 106, 0.6);
+  --neon-purple: #bf00ff;
+  --neon-purple-glow: rgba(191, 0, 255, 0.5);
+  --neon-green: #39ff14;
+  --neon-green-glow: rgba(57, 255, 20, 0.55);
+  --neon-yellow: #ffe600;
+  --neon-yellow-glow: rgba(255, 230, 0, 0.45);
+}
+
+body, main, #asl-statmon-dashboard-area {
+  background-color: #05020f !important;
+  color: #e8e0ff !important;
+}
+
+.card, .card-body, .bg-light, .bg-white, div.rounded, .node-bi {
+  background-color: #0e0620 !important;
+  color: #e8e0ff !important;
+  border-color: #2a1545 !important;
+}
+
+.table, .table-bordered {
+  border-color: #4a2a70 !important;
+  color: #e8e0ff !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  background-color: #0a0418 !important;
+  color: #e8e0ff !important;
+  --bs-table-accent-bg: #0a0418;
+}
+
+.table-striped > tbody > tr:nth-of-type(even) > * {
+  background-color: #140a28 !important;
+  color: #e8e0ff !important;
+  --bs-table-accent-bg: #140a28;
+}
+
+tbody, td, tfoot, th, thead, tr {
+  border-color: #4a2a70 !important;
+}
+
+.card, .card-body, .node-bi, div.rounded, .table, .table td, .table th,
+td.desc, .desc, .node-desc, .nodetxline, .asl-node-panel,
+#asl-statmon-dashboard-area * {
+  color: #e8e0ff !important;
+}
+
+/* Title – hot pink + yellow edge */
+#navbar-midbar, .navbar-midbar {
+  color: var(--neon-pink) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 6px var(--neon-pink-glow),
+               0 0 14px var(--neon-pink-glow),
+               0 0 24px rgba(255, 42, 106, 0.4),
+               0 0 4px var(--neon-yellow-glow);
+}
+
+/* Node titles – cyan */
+.nodetitle, .asl-node-title, .node-bi .card-header, .card-header,
+[class*="nodetitle"], .am3-nodetitle {
+  color: var(--neon-cyan) !important;
+  text-shadow: 0 0 8px var(--neon-cyan-glow);
+}
+
+/* Active TX – neon pink */
+.nodetxline.am3-tx-local, .nodetxline.am3-tx-network,
+.nodetxline.am3-tx-telemetry, .nodetxline.am3-tx-playback-remote,
+.am3-tx-local, .am3-tx-network, .am3-tx-telemetry, .am3-tx-playback-remote {
+  color: #ff5c8a !important;
+  background-color: #2a0a18 !important;
+  border: 1px solid var(--neon-pink) !important;
+  box-shadow: 0 0 10px var(--neon-pink-glow),
+              0 0 20px rgba(255, 42, 106, 0.35) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 6px var(--neon-pink-glow);
+}
+
+/* Keyed left bars – neon pink */
+.node-conn-keyed, td.node-conn-keyed, th.node-conn-keyed {
+  border-left: 5px solid var(--neon-pink) !important;
+  color: #ff99cc !important;
+  text-shadow: 0 0 8px var(--neon-pink-glow);
+}
+
+/* Idle – electric green */
+.nodetxline.am3-no-tx, .nodetxline.am3-no-tx *, .am3-no-tx {
+  color: var(--neon-green) !important;
+  background-color: #051a08 !important;
+  border: 1px solid var(--neon-green) !important;
+  box-shadow: 0 0 8px var(--neon-green-glow);
+  text-shadow: 0 0 6px var(--neon-green-glow);
+}
+
+/* Node panels – cyan + purple + green glow */
+.card, .card-body, div.rounded, .node-bi {
+  border: 1px solid var(--neon-cyan) !important;
+  box-shadow: 0 0 12px var(--neon-cyan-glow),
+              0 0 24px var(--neon-purple-glow),
+              0 0 36px rgba(57, 255, 20, 0.15),
+              inset 0 0 10px rgba(0, 247, 255, 0.07);
+}
+
+.table, .table-bordered {
+  border: 1px solid var(--neon-cyan) !important;
+  box-shadow: 0 0 8px var(--neon-cyan-glow);
+}
+
+.sidebar {
+  background-color: #0a0418 !important;
+}
+
+.sidebar a, #login-out-region button {
+  color: #e8e0ff !important;
+  background-color: #140a28 !important;
+  border-color: #4a2a70 !important;
+}
+
+.card .btn, .node-bi .btn, .btn-sm, button.btn {
+  box-shadow: none !important;
+  border: 1px solid #4a2a70 !important;
+  background-color: #140a28 !important;
+  color: #e8e0ff !important;
+}
+
+.card .btn:hover, .node-bi .btn:hover, .btn-sm:hover, button.btn:hover {
+  border-color: var(--neon-pink) !important;
+  background-color: #221040 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 8px var(--neon-pink-glow) !important;
+}
+
+.modal-content {
+  background-color: #0e0620 !important;
+  border-color: #4a2a70 !important;
+  color: #e8e0ff !important;
+}
+
+.dropdown-menu {
+  background-color: #140a28 !important;
+  border-color: #4a2a70 !important;
+}
+
+.dropdown-item { color: #e8e0ff !important; }
+.dropdown-item:hover {
+  background-color: #221040 !important;
+  color: #ffffff !important;
+}
+
+.tooltip {
+  --bs-tooltip-bg: #140a28;
+  --bs-tooltip-color: #e8e0ff;
+}
+
+.tooltip-inner {
+  background-color: #140a28 !important;
+  color: #e8e0ff !important;
+  border: 1px solid var(--neon-pink);
+  box-shadow: 0 0 8px var(--neon-pink-glow);
+}
